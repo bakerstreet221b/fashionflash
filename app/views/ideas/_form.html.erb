@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= @username %>
+    <%= link_to :username %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
@@ -23,6 +23,6 @@
     <%= f.text_field :picture %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "flash it" %>
   </div>
 <% end %>

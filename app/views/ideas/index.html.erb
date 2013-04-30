@@ -12,10 +12,9 @@
 
 <% @ideas.each do |idea| %>
   <tr>
-    <td><%= link_to idea.name %></td>
-    <td><%= idea.description %></td>
+    <td><%= :username %></td>
+    <td><%= link_to idea.description, idea %></td>
     <td><%= idea.picture %></td>
-    <td><%= link_to 'Show', idea %></td>
     <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
     <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
