@@ -12,7 +12,7 @@
 
 <% @ideas.each do |idea| %>
   <tr>
-    <td><%= :username %></td>
+    <td><%= link_to :username %></td>
     <td><%= link_to idea.description, idea %></td>
     <td><%= idea.picture %></td>
     <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
