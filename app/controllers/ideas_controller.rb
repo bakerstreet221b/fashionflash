@@ -2,20 +2,8 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    if params[:zipcode]
-      @ideas = Idea.where(:zipcode => params[:zipcode])
-    else
-      @ideas = Idea.all
-    end
-    
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml {render :xml =>@tweets}
-    end
-  
-    if params[:username]
-      @user = User.where(:username => params[:username]).first
-      @ideas = @user.ideas
+    if params[:id]
+      @ideas = Idea.where(:id => params[:id])
     else
       @ideas = Idea.all
     end
@@ -38,6 +26,7 @@ class IdeasController < ApplicationController
   def new
     @idea = Idea.new
 
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @idea }
@@ -53,10 +42,12 @@ class IdeasController < ApplicationController
   # POST /ideas.json
   def create
     @idea = Idea.new(params[:idea])
+    @idea.name = current_user.username
+    @idea.user_id = current_user.id
 
     respond_to do |format|
       if @idea.save
-        format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
+        format.html { redirect_to @idea, notice: 'Flash was successfully created.' }
         format.json { render json: @idea, status: :created, location: @idea }
       else
         format.html { render action: "new" }
@@ -72,7 +63,7 @@ class IdeasController < ApplicationController
 
     respond_to do |format|
       if @idea.update_attributes(params[:idea])
-        format.html { redirect_to @idea, notice: 'Idea was successfully updated.' }
+        format.html { redirect_to @idea, notice: 'Flash was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

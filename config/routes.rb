@@ -2,7 +2,10 @@ Fashionflash::Application.routes.draw do
   devise_for :users
 
   resources :ideas
-    match ':username' => 'ideas#index', :as => 'user_ideas'
+  resources :users do
+    resources :ideas, controller: 'user_ideas'
+  end
+  
 
 
   # The priority is based upon order of creation:

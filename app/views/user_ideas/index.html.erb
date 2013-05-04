@@ -1,8 +1,7 @@
-<h1>Listing flash</h1>
+<h1><%= @ideas.first.name %></h1>
 
 <table>
   <tr>
-    <th>Name</th>
     <th>Description</th>
     <th>Picture</th>
     <th></th>
@@ -12,7 +11,6 @@
 
 <% @ideas.each do |idea| %>
   <tr>
-    <td><%= link_to idea.name, [idea.user, :ideas] %></td>
     <td><%= link_to idea.description, idea %></td>
     <td><%= image_tag idea.picture_url, :width => '10%' if idea.picture.present?%></td>
 
@@ -32,4 +30,4 @@
 
 <br />
 
-<%= link_to 'New flash', new_idea_path %>
+<%= link_to 'back', ideas_path %>

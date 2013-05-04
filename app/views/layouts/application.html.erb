@@ -11,7 +11,7 @@
 	<div class="topbar">
   <div class="fill">
     <div class="container">
-      <a class="brand" href="/">Another silly app</a>
+      <a class="brand" href="/">Fashionflash</a>
       <ul class="nav">
         <li class="active"><a href="/ideas">flash me, baby</a></li>
         <li ><%= link_to 'New flash', new_idea_path %></li>
@@ -36,7 +36,6 @@
 	<% if alert %>
   		<p class="alert alert-error"><%= alert %></p>
 	<% end %>
-	<div><h1><%= link_to 'Fashionflash', ideas_path %></h1></div>
   <%= yield %>
 </div>
 
