@@ -14,7 +14,7 @@
   <tr>
     <td><%= link_to idea.name, [idea.user, :ideas] %></td>
     <td><%= link_to idea.description, idea %></td>
-    <td><%= image_tag idea.picture_url, :width => '10%' if idea.picture.present?%></td>
+    <td><%= image_tag idea.picture_url, :width => '250' if idea.picture.present?%></td>
 
     <td>
       <% if can? :update, idea %>
