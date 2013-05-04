@@ -1,7 +1,7 @@
 class CreateIdeas < ActiveRecord::Migration
   def change
     create_table :ideas do |t|
-      t.string :username
+      t.string :name
       t.text :description
       t.string :picture
 
