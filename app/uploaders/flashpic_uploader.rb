@@ -1,6 +1,10 @@
 # encoding: utf-8
 
 class FlashpicUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MiniMagick
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -11,7 +15,7 @@ class FlashpicUploader < CarrierWave::Uploader::Base
   # include Sprockets::Helpers::IsolatedHelper
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  storage :fog
   # storage :fog
 
   # Override the directory where uploaded files will be stored.

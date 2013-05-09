@@ -4,18 +4,28 @@
 </p>
 
 <p>
-  <b>Description:</b>
-  <%= @idea.description %>
+	<% if @idea.picture.present? %>		
+  <b></b>
+  <%= image_tag(@idea.picture_url, :width => "100%")  %>
+  <% end %>
 </p>
 
 <p>
-	<% if @idea.picture.present? %>		
-  <b>Picture:</b>
-  <%= image_tag(@idea.picture_url, :width => "100%")  %>
-  <% end %>
+  <b>Description:</b>
+  <%= @idea.description %>
 </p>
 
 <% if can? :update, @idea %>
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <% end %>
 <%= link_to 'Back', ideas_path %>
+
+<p><b>Comments</b></p>
+<% @idea.comments.each do |comment| %>
+  <div>
+    <strong><%= comment.user_name %></strong>
+    <br />
+    <p><%= link_to comment.body, comments_path %><p>
+  </div>
+<% end %>
+<%= render 'comments/form' %>

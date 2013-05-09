@@ -1,35 +1,31 @@
 <h1>Listing flash</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Picture</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<li>
+  
 
 <% @ideas.each do |idea| %>
-  <tr>
-    <td><%= link_to idea.name, [idea.user, :ideas] %></td>
-    <td><%= link_to idea.description, idea %></td>
-    <td><%= image_tag idea.picture_url, :width => '250' if idea.picture.present?%></td>
 
-    <td>
+    <ul><%= link_to idea.name, [idea.user, :ideas] %></ul>
+    <ul>
+      <td><%= link_to image_tag idea.picture_url, :width => '250' if idea.picture.present? %></td>
+      <td><%= link_to idea.description, idea %></td>
+    </ul>
+
+    <ul>
       <% if can? :update, idea %>
         <%= link_to 'Edit', edit_idea_path(idea) %>
       <% end %>
-    </td>
-    <td>
+    </ul>
+    <ul>
       <% if can? :destroy, idea %>
         <%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
-    </td>
-  </tr>
+    </ul>
 <% end %>
-</table>
+</li>
 
 <br />
 
+<% if can? :update, @idea %>
 <%= link_to 'New flash', new_idea_path %>
+<% end %>
