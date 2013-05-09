@@ -19,8 +19,8 @@
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <% end %>
 <%= link_to 'Back', ideas_path %>
-
-<p><b>Comments</b></p>
+</br>
+<p><b><%= link_to 'Comments', comments_path%></b></p>
 <% @idea.comments.each do |comment| %>
   <div>
     <strong><%= comment.user_name %></strong>
