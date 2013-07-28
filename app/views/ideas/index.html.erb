@@ -4,7 +4,7 @@
   
 
 <% @ideas.each do |idea| %>
-
+  <div class="jumbotron">
     <ul>
       <td><%= link_to idea.name, [idea.user, :ideas] %></td>
       
@@ -27,6 +27,7 @@
       <% end %>
       </td>
     </ul>
+    </div>
 <% end %>
 </li>
 
