@@ -2,16 +2,15 @@
 <html>
 <head>
   <title>Fashionflash</title>
-  <link rel="stylesheet" href="https://github.com/bakerstreet221b/fashionflash/generated_pages/new" />
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="topbar">
-  <div class="fill">
-    <div class="container">
-      <a class="brand" href="/">Fashionflash</a>
+	<div class="page-header">
+  <div class="panel">
+    <div class="panel-heading">
+      <a class="panel-title" href="/">Fashionflash</a>
       <ul class="nav">
         <li class="active"><a href="/ideas">flash me, baby</a></li>
         <li ><%= link_to 'New flash', new_idea_path %></li>
@@ -40,7 +39,7 @@
 </div>
 
 <footer>
-  <div class="container">
+  <div class="panel-footer">
     Thereza <%= link_to 'github', 'https://github.com/bakerstreet221b' %>
   </div>
 
